@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Доска Объявлений</title>
+</head>
+<body>
+    <h1>Объявления</h1>
+    <div>
+        <a href="{% url 'main' %}">Главная</a>
+        <a href="{% url 'add_item' %}">Подать объявление</a>
+        {% for category in categories %}
+            <a href="{% url 'by_category' category.id %}"> {{ category.name }}   </a>
+        {% endfor %}
+    </div>
+    {% for adv in advertisements %}
+        <div>
+            <h2>{{ adv.title }}</h2>
+            <p>{{ adv.content }}</p>
+            <p>{{ adv.price }}</p>
+            <p>{{ adv.date_published|date:"d.m.Y H:i:s" }}</p>
+        </div>
+    {% endfor %}
+</body>
+</html>

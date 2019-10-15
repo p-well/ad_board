@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Доска объявлений - подать новое</title>
+    <h1>Новое объявление</h1>
+        <div>
+           <a href="{% url 'main' %}">Главная</a>
+        </div>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit", value="Добавить">
+        </form>
+</head>
+<body>
+
+</body>
+</html>
